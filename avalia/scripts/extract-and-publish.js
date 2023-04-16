@@ -26,7 +26,7 @@ function extractMarkdownData(markdown) {
 
   let sectionMatch;
   while ((sectionMatch = sectionRegex.exec(markdown)) !== null) {
-    const propertyName = sectionMatch[1].toLowerCase().trim().replace(/\s+/g, '_');
+    let propertyName = sectionMatch[1].toLowerCase().trim().replace(/\s+/g, '_');
     if (propertyName.startsWith('solution')) {
       propertyName = 'author';
     }
