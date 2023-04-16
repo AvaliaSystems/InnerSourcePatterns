@@ -26,7 +26,14 @@ function extractMarkdownData(markdown) {
 
   let sectionMatch;
   while ((sectionMatch = sectionRegex.exec(markdown)) !== null) {
-    data[sectionMatch[1].toLowerCase().trim().replace(/\s+/g, '_')] = sectionMatch[2].trim();
+    const propertyName = sectionMatch[1].toLowerCase().trim().replace(/\s+/g, '_');
+    if (propertyName.startsWith('solution')) {
+      propertyName = 'author';
+    }
+    if (propertyName.startsWith('author')) {
+      propertyName = 'authors';
+    }
+    data[propertyName] = sectionMatch[2].trim();
   }
 
   data.title = data.title || 'untitled';
