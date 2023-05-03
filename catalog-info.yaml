@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: innersource-commons-patterns-fork
+spec:
+  type: content
+  lifecycle: experimental
+  owner: dx-team
+
